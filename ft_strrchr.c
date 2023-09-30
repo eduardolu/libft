@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 17:35:46 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/11 17:35:48 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/12 16:10:16 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/12 16:10:19 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t		i;
-	char		*dst_c;
-	char		*src_c;
+	int	i;
+	int	c_m;
 
-	dst_c = (char *)dst;
-	src_c = (char *)src;
+	c_m = c % 256;
 	i = 0;
-	while ((src_c[i]) && (i < n))
-	{
-		dst_c[i] = src_c[i];
+	while (s[i])
 		i++;
+	while (i >= 0)
+	{
+		if (s[i] == c_m)
+			return ((char *)&s[i]);
+		i--;
 	}
+	return (0);
 }
-//int main(void)
+//int main (void)
 //{
-//  char b[]="0123456789";
-//  char c[]="0123456789";
-//  memcpy(b+2,b,10);
-//  puts(b);
-//  ft_memcpy(c+2,c,10);
-//  puts(c);
+//	char c[] = "holahola";
+//	printf("%p\n", ft_strrchr(c,'h'));
+//	printf("%p\n", strrchr(c,'h'));
+//	return 0;
 //}

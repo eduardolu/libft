@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 12:07:25 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/14 12:07:27 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/11 17:35:57 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/11 17:35:59 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
-	char	*res = "encontre";
+	size_t	i;
+	char	*s_c;
 
+	s_c = (char *)s;
 	i = 0;
-	while (ft_strlen(ft_strnstr(s1,set,ft_strlen(s1))) != 0)
+	while (i < n)
 	{
-		break;
+		s_c[i] = '\0';
+		i++;
 	}
-	return res;
 }
-
 //int main (void)
 //{
-//	char *s1 = "hola que tal";
-//	char *s2 = "ta";
-
-//	printf("resultado: %s \n", ft_strtrim(s1,s2));
+	//char a[]="hola";
+	//char b[]="adios";
+	//printf("%s",a);
+	//bzero(a+2,4);
+	//printf("%s",a);
+	//printf("%s",b);
+	//ft_bzero(b+2,4);
+	//printf("%s",b);
 //}

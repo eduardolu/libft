@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:25:25 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/11 13:25:28 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/29 15:05:33 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/29 15:05:35 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (!(c <= 0 && c >= 127))
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
 }
-//int	main (void)
-//{ 	
-//	int	res;
-//    int fin;
-//    res = '';
-// 	fin = ft_isascii(res);
-//    printf("resuntado es %d", fin);
-//    fin = isascii(res);
-// 	printf("resuntado es %d", fin);
-//    return (0);
-//}

@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 19:08:28 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/11 19:08:32 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/11 15:56:01 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/11 15:56:03 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t		i;
-	char		aux[len];
-	char		*dst_c;
-	char		*src_c;
+	size_t	i;
+	char	s;
+	char	*b_c;
 
-	dst_c = (char *)dst;
-	src_c = (char *)src;
+	b_c = (char *)b;
+	s = c;
 	i = 0;
-	while (src_c[i])
+	while (i < len)
 	{
-		aux[i] = src_c[i];
+		b_c[i] = s;
 		i++;
 	}
-	i = 0;
-	while ((src_c[i]) && (i < len))
-	{
-		dst_c[i] = aux[i];
-		i++;
-	}
+	return (b);
 }
-//int main(){
-//  //char a[]="hare rama hare rama";
-//  char b[]="0123456789";
-//  char c[]="0123456789";
-//  memmove(b+2,b,7);
-//  puts(b);
-//  ft_memmove(c+2,c,7);
-//  puts(c);
+//int main(void)
+//{
+//    char str[50];
+//    strcpy(str,"This is string.h library function");
+//    puts(str);
+//    ft_memset(str,'i',6);
+//    puts(str);  
+//	printf("%s", memset(str,'j',6));
+//    return 0;
 //}

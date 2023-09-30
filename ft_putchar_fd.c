@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:10:16 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/12 16:10:19 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/29 14:45:47 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/29 14:56:52 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return (&s[i]);
-		i--;
-	}
-	return (0);
+	write(fd, &c, 1);
 }
-//int main (void)
-//{
-//	char c[] = "holahola";
-
-//	printf("%p\n", ft_strrchr(c,'h'));
-//	printf("%p\n", strrchr(c,'h'));
-//	return 0;
-//}

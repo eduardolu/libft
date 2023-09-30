@@ -19,28 +19,41 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	i = 0;
 	j = 0;
-	while (i < len - 1)
+	if (ft_strlen (needle) == 0)
+		return ((char *)haystack);
+	while (i < len && len > 0 && haystack[i])
 	{
 		if (haystack[i] == needle[j])
 		{
-			while (needle[j] && len > (i + j + 1))
+			while (needle[j] && len >= (i + j + 1))
 			{
 				if (haystack[i + j] != needle[j])
-					return (0);
+					break ;
 				j++;
 			}
-			return (&haystack[i]);
+			if ((int )ft_strlen (needle) <= j)
+				return ((char *)&haystack[i]);
 		}
 		i++;
+		j = 0;
 	}
 	return (0);
 }
 //int main (void)
 //{
-//	char a[]="hola que tal";
-//	char b[]="ta";
-//	int i=10;
-//	printf("%s\n",strnstr(a,b,i));
-//	printf("%s\n",ft_strnstr(a,b,i));
+//	char a[50]="aaabcabcd";
+//	char b[10]="aabc";
+//	//int i=12;
+//	printf("%s\n",strnstr( a, "abcd", 9));
+//	printf("%s\n",ft_strnstr( a, "abcd", 9));
+//	//char *s1 = "MZIRIBMZIRIBMZE123";
+// 	//char *s2 = "MZIRIBMZE";
+// 	//size_t max = strlen(s2);
+// 	//printf("%s\n",strnstr(s1, s2, max));
+// 	//printf("%s\n",ft_strnstr(s1, s2, max));
+//	//char *s1 = "AAAAAAAAAAAAA";
+// 	//size_t max = strlen(s1);
+// 	//printf("%s\n",strnstr(s1, s1, max));
+// 	//printf("%s\n",ft_strnstr(s1, s1, max));
 //	return (0);
 //}

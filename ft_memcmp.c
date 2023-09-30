@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 17:35:57 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/11 17:35:59 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/12 16:38:48 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/12 16:38:50 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	char	*s_c;
+	size_t			i;
+	unsigned char	*s1_c;
+	unsigned char	*s2_c;
 
-	s_c = (char *)s;
 	i = 0;
-	while ((s_c[i]) && (i < n))
+	s1_c = (unsigned char *)s1;
+	s2_c = (unsigned char *)s2;
+	while (i < n)
 	{
-		s_c[i] = '\0';
+		if (s1_c[i] != s2_c[i])
+			return (s1_c[i] - s2_c[i]);
 		i++;
 	}
+	return (0);
 }
 //int main (void)
 //{
-//	char a[]="hola";
-//	char b[]="adios";
-//	printf("%s",a);
-//	bzero(a+2,4);
-//	printf("%s",a);
-//	printf("%s",b);
-//	ft_bzero(b+2,4);
-//	printf("%s",b);
+//	char s2[] = {0,0,127,0};
+//	char s3[] = {0,0,42,};
+//	printf ("%d\n", ft_memcmp(s2, s3, 4));
+//	printf ("%d\n", memcmp(s2, s3, 4));
 //}

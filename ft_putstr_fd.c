@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 15:56:01 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/11 15:56:03 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/29 15:01:33 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/29 15:01:36 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memset(void *b, int c, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	char	s;
-	char	*b_c;
+	int	i;
 
-	b_c = (char *)b;
-	s = c;
 	i = 0;
-	while ((b_c[i]) && (i < len))
+	while (s[i])
 	{
-		b_c[i] = s;
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
-//int main(void)
-//{
-//    char str[50];
-//    strcpy(str,"This is string.h library function");
-//    puts(str);
-//    ft_memset(str,'i',6);
-//    puts(str);  
-//    return 0;
-//}

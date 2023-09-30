@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:38:48 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/12 16:38:50 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/11 17:35:46 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/11 17:35:48 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*s1_c;
-	char	*s2_c;
+	size_t		i;
+	char		*dst_c;
+	char		*src_c;
 
-	s1_c = (char *)s1;
-	s2_c = (char *)s2;
+	dst_c = (char *)dst;
+	src_c = (char *)src;
 	i = 0;
-	while ((s1_c[i] || s2_c[i]) && i < n)
+	if (!dst_c && !src_c)
+		return (0);
+	while ((i < n))
 	{
-		if (s1_c[i] != s2_c[i])
-			return (s1_c[i] - s2_c[i]);
+		dst_c[i] = src_c[i];
 		i++;
 	}
-	return (0);
+	return (dst_c);
 }
-//int main (void)
+//int main(void)
 //{
-//	char a[] = "hola";
-//	char b[] = "holaa";
-//	printf ("%d\n", ft_memcmp(b,a,4));
-//	printf ("%d\n", memcmp(b,a,4));
+//  char b[]="0123456789";
+//  char c[]="0123456789";
+//  memcpy(b+2,b,7);
+//  puts(b);
+//  ft_memcpy(c+2,c,7);
+//  puts(c);
 //}

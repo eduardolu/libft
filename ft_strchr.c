@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 12:07:37 by zlu               #+#    #+#             */
-/*   Updated: 2023/09/14 12:07:39 by zlu              ###   ########.fr       */
+/*   Created: 2023/09/12 16:09:25 by zlu               #+#    #+#             */
+/*   Updated: 2023/09/12 16:09:29 by zlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-	size_t	i;
+	int	i;
+	int	c_m;
 
+	c_m = c % 256;
 	i = 0;
-	ptr = (char *)malloc((len+1)*sizeof(char));
-	if(ptr == NULL)
-		return (0);
-	while (i<len)
+	while (s[i])
 	{
-		ptr[i] = s[start+i];
+		if (s[i] == c_m)
+			return ((char *)&s[i]);
+		i++;
 	}
-	ptr[i] = 0;
-	return (ptr);
+	if (s[i] == c_m)
+		return ((char *)&s[i]);
+	return (0);
 }
+//int main (void)
+//{
+//	char c[] = "hota";
+//	printf("%p\n", ft_strchr(c, '\n'));
+//	printf("%p\n", strchr(c, '\n'));
+//	return 0;
+//}
